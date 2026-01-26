@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>22 Gifts for You 💝</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  min-height: 100vh;
+  background: url('bg2.jpg') center / cover no-repeat fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: inherit;
+  filter: blur(2px) brightness(0.99);
+  z-index: -1;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #d63384;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+@keyframes birthdayGlow {
+  0% {
+    text-shadow:
+      0 0 6px rgba(214, 51, 132, 0.4),
+      0 0 14px rgba(214, 51, 132, 0.3),
+      0 0 24px rgba(214, 51, 132, 0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(214, 51, 132, 0.8),
+      0 0 22px rgba(214, 51, 132, 0.6),
+      0 0 40px rgba(214, 51, 132, 0.4);
+  }
+  100% {
+    text-shadow:
+      0 0 6px rgba(214, 51, 132, 0.4),
+      0 0 14px rgba(214, 51, 132, 0.3),
+      0 0 12px rgba(214, 51, 132, 0.2);
+  }
+}
+
+h1 {
+  animation: birthdayGlow 2.8s ease-in-out infinite;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.gift {
+  position: relative;
+  animation: giftBounce 2.5s ease-in-out infinite;
+
+  font-size: 40px;
+  cursor: pointer;
+  padding: 15px;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border-radius: 14px;
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.25);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gift::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.05)
+  );
+
+  pointer-events: none;
+}
+
+.gift:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255,0.9);
+  box-shadow:
+    0 0 35px rgba(214, 51, 132, 0.7),
+    0 0 60px rgba(214, 51, 132, 0.45),
+
+    /* soft depth */
+    0 12px 25px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Popup same behavior for all gifts */
+.popup-content {
+  background: #ffd1dc;   /* soft pink */
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  width: fit-content;
+  max-width: 90vw;
+  max-height: 90vh;
+  box-sizing: border-box;
+}
+
+/* Default media */
+.media-box {
+  margin: 12px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  width: fit-content;
+  max-width: 80vw;
+  max-height: 60vh;
+}
+
+.media-box img,
+.media-box video {
+  display: none;
+  max-width: 100%;
+  max-height: 60vh;
+  height: auto;
+  width: auto;
+}
+
+/* STANDARD TEXT */
+#giftText {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #d63384;
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+
+/* 🔥 SPLIT LAYOUT — UPDATED */
+.split-layout {
+  display: none;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 80vw;
+  width: 800px;
+  height: 520px;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+}
+
+.split-text {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #4a0033;
+  text-align: left;
+  white-space: pre-line;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.split-media {
+  flex: 0 0 45%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.05);
+}
+
+.split-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.option-box {
+  display: block;
+  background: #f8d7fb;
+  color: #4a0033;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.option-box:hover {
+  transform: scale(1.05);
+  background: #f0b5e1;
+}
+
+/* 🌸 Bouquet Scroller */
+.bouquet-box {
+  width: 220px;
+  height: 280px;
+  margin: 12px auto;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.bouquet-track {
+  display: flex;
+  flex-direction: column;
+  animation: bouquetScroll 25s linear infinite;
+}
+
+.bouquet-track img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes bouquetScroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* 🎉 CONFETTI */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.confetti-container.left {
+  left: 0;
+  width: 220px;          /* expands inward */
+}
+
+.confetti-container.right {
+  right: 0;
+  width: 220px;          /* expands inward */
+}
+
+
+.confetti {
+  position: absolute;
+  top: -10px;
+  width: 20px;
+  height: 14px;
+  opacity: 0.9;
+  animation: fall linear infinite;
+  border-radius: 4px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+@keyframes giftBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.grid .gift:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+.grid .gift:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+.blur-image {
+  filter: blur(10px) brightness(0.8);
+  transition: filter 0.5s ease;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.reveal-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  pointer-events: none;
+}
+
+
+.close {
+  margin-top: 12px;
+  color: #d63384;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happyy Birthdayy Kavuuu 💝</h1>
+<!-- 🎉 Side Confetti -->
+<div class="confetti-container left"></div>
+<div class="confetti-container right"></div>
+
+
+<div class="grid"> 
+  <div class="gift" onclick="openGift(0)">👋</div> 
+  <div class="gift" onclick="openGift(1)">🎶</div> 
+  <div class="gift" onclick="openGift(2)">🎂</div> 
+  <div class="gift" onclick="openGift(3)">🌈</div> 
+  <div class="gift" onclick="openGift(4)">💖</div> 
+  <div class="gift" onclick="openGift(5)">📸</div> 
+  <div class="gift" onclick="openGift(6)">❓</div> 
+  <div class="gift" onclick="openGift(7)">⏸️</div> 
+  <div class="gift" onclick="openGift(8)">🎀</div> 
+  <div class="gift" onclick="openGift(9)">🕰️</div> 
+  <div class="gift" onclick="openGift(10)">🌸</div> 
+  <div class="gift" onclick="openGift(11)">📱</div> 
+  <div class="gift" onclick="openGift(12)">💐</div> 
+  <div class="gift" onclick="openGift(13)">👗</div> 
+  <div class="gift" onclick="openGift(14)">🗺️</div> 
+  <div class="gift" onclick="openGift(15)">💛</div> 
+  <div class="gift" onclick="openGift(16)">📞</div> 
+  <div class="gift" onclick="openGift(17)">🙏</div> 
+  <div class="gift" onclick="openGift(18)">💌</div> 
+  <div class="gift" onclick="openGift(19)">🥺</div> 
+  <div class="gift" onclick="openGift(20)">📖</div> 
+  <div class="gift" onclick="openGift(21)">👀</div> 
+</div>
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+
+    <!-- SPLIT LAYOUT -->
+    <div id="splitLayout" class="split-layout">
+      <div id="splitText" class="split-text"></div>
+      <div class="split-media">
+        <img id="splitImg">
+      </div>
+    </div>
+
+    <!-- WRITE YOUR OWN MESSAGE -->
+<div id="writeBox" style="display:none; margin-top:12px;">
+  <p style="font-weight:bold; color:#d63384;">
+    If you could tell your younger self one thing… what would it be?
+  </p>
+
+  <textarea
+    id="userMessage"
+    placeholder="Write anything you feel like…"
+    style="
+      width: 100%;
+      max-width: 420px;
+      height: 130px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      resize: none;
+      font-family: inherit;
+      box-sizing: border-box;
+    "
+  ></textarea>
+
+  <div style="margin-top:6px; display:flex; justify-content:space-between; align-items:center;">
+    <span style="font-size:0.85rem; color:#555;">
+      This stays just here 🤍 
+    </span>
+
+    <button
+      onclick="clearUserMessage()"
+      style="
+        background:none;
+        border:none;
+        color:#d63384;
+        font-size:0.85rem;
+        cursor:pointer;
+      "
+    >
+      Clear
+    </button>
+  </div>
+</div>
+
+<!-- 🌸 Bouquet Loop -->
+<div id="bouquetBox" class="bouquet-box" style="display:none;">
+  <div class="bouquet-track">
+    <img src="bouquet1.png">
+    <img src="bouquet2.png">
+    <img src="bouquet3.jpg">
+    <img src="bouquet4.png">
+    <img src="bouquet5.png">
+    <img src="bouquet6.jpg">
+    <img src="bouquet7.png">
+    <img src="bouquet8.png">
+    <img src="bouquet9.png">
+    <img src="bouquet10.png">
+    <img src="bouquet11.png">
+    <img src="bouquet12.png">
+    <img src="bouquet13.png">
+    <img src="bouquet1.png">
+    <img src="bouquet2.png">
+    <img src="bouquet3.jpg">
+    <img src="bouquet4.png">
+    <img src="bouquet5.png">
+    <img src="bouquet6.jpg">
+    <img src="bouquet7.png">
+    <img src="bouquet8.png">
+    <img src="bouquet9.png">
+    <img src="bouquet10.png">
+    <img src="bouquet11.png">
+    <img src="bouquet12.png">
+    <img src="bouquet13.png">
+  </div>
+</div>
+
+
+    <!-- NORMAL FLOW -->
+  <div id="giftText"></div>
+
+    <div class="media-box" id="mediaBox">
+      <video id="giftVideo" controls playsinline unmuted>
+        <source id="videoSource" type="video/mp4">
+      </video>
+      <img id="giftImg">
+    </div>
+
+    <div class="close" onclick="closeGift()">Close 💕</div>
+  </div>
+</div>
+
+<script>
+const colors = [
+  "#ff69b4", "#ffd700", "#ffb6c1",
+  "#dda0dd", "#ff8fab", "#ffc0cb"
+];
+
+function createConfetti(side) {
+  const container = document.querySelector(
+    side === "left"
+      ? ".confetti-container.left"
+      : ".confetti-container.right"
+  );
+
+  const confetti = document.createElement("div");
+  confetti.className = "confetti";
+
+  const maxWidth = container.clientWidth - 10;
+  confetti.style.left = Math.random() * maxWidth + "px";
+
+  confetti.style.backgroundColor =
+    colors[Math.floor(Math.random() * colors.length)];
+
+  confetti.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+  container.appendChild(confetti);
+
+  setTimeout(() => confetti.remove(), 9000);
+}
+
+// Spawn confetti continuously
+setInterval(() => {
+  createConfetti("left");
+  createConfetti("right");
+}, 300);
+</script>
+
+
+<script>
+  let currentGiftIndex = null;
+const gifts = [
+  {
+    type: "card",
+    text: `Hey Urundaaa 😄🎂
+
+    I made this little website just for you.
+
+    Think of it as a box full of small memories, laughs, moments, and thoughts.
+
+    Open each gift slowly and enjoy 💖`
+  },
+  {
+    type: "video",
+    text: `This is the right way to begin. 🎧💫`,
+    src: "birthday_song.mp4"
+  },
+  {
+    type: "imageSplit",
+    text: `\n\n\n\n\nHappyy birthdayy priyuuu 🫂🌍❤️✨️
+    I hope you’re smiling a lot today and actually enjoying your day.. 💫
+    I just wanted to wish you properly and tell you that I really hope this year treats you well.. 🌈
+    You deserve good things, peace, and a lot of happy moments..
+    Stay safe, take care of yourself, and don’t stress too much (I know you do 😅)..
+    Eat well, rest properly and have fun todayy..
+    Take good care of yourself`,
+    src: "pic1.jpg"
+  },
+  {
+    type: "imageSplit",
+    text: `\n\n\n\n\n\n\nI really hope you achieve everything you’ve set your mind to this year..
+    I’ll always be there to support you however I can, no matter what..
+    I genuinely want to see you succeed and reach all the amazing things you deserve..
+    and I’ll be one of those proud friends cheering you on the whole way..😄`,  
+    src: "pic2.jpeg"
+  },
+  { 
+    type: "card", 
+    text: `Alright, enough seriousness for now 😅
+    Let’s take it slow and keep this one light.
+    
+    Lets talk about a few things I like about you 💫
+
+    ✨ The way you talk about your day makes me feel included in your life.
+    ✨ You always make the effort to find time for me, and that never goes unnoticed.
+    ✨ You can tell immediately when something’s wrong with me, even when I say I’m fine.
+    ✨ You know me — really know me — and that means everything.
+    ✨ Your smile (yes, this absolutely had to be here).
+    ✨ The comfort you bring just by being there.
+    ✨ Your patience (especially with me 😅)
+    ✨ How you stay kind, even when life isn’t kind to you
+
+    Just thought you should know this today ❤️`
+  },
+  {
+    type: "twoStepImage",
+    text: "Sun, sea, and YOU ☀️🌊💛",
+    src: "cutephoto.jpg",
+    blurredSrc: "cutephoto.jpg", // same image but blurred via CSS
+    revealStep: 0
+  }, 
+  {
+  type: "quiz",
+  question: "Where did we first hang out together? 🏙️",
+  options: [
+    { text: "Marina Mall🏬🛍️", response: "Almost! 🛍️😅 We’ve had fun there, but our story actually started somewhere a little more… wild 😉" },
+    { text: "Vandalur Zoo 🦁🌿", response: "Correct! 🦁🌿 Our very first hangout—walking around, talking nonstop, and pretending we weren’t tired at all 😄💚" },
+    { text: "Chiru's Home🏠😊", response: "Nice guess! 🏠😊 But that came later—our first hangout was a proper outing, not a home visit!" }
+  ]
+  },
+  {
+    type: "card",
+    text: `Just a small pause here 🌸
+
+    Breathe.
+    Smile.
+    And get ready for the next one 😄`
+  },
+  {
+  type: "compliment",
+  text: `A little compliment for you 💖
+  (If I were you I'd look at this more than once 🌟)`,
+  compliments: [
+    "You’re awesome! 😎✨",
+    "Your smile can brighten anyone’s day 🌞",
+    "You are ridiculously kind and thoughtful 💝",
+    "You always know how to make someone feel special 🫂",
+    "You’re genuinely one of a kind 🌈",
+    "Your energy lights up the room 💫",
+    "You make ordinary moments extraordinary 🌸",
+    "You have a heart of gold 💛",
+    "You’re stronger than you know 🛡️🌟",
+    "You have such a warm heart ❤️🔥",
+    "You always bring good vibes ✨🌞",
+    "You have a sparkle that can’t be ignored ✨💛",
+    "You make life more fun 🎉😎",
+    "You’re capable of amazing things 💪🌈",
+    "Your laughter is contagious 😂🌻",
+    "You bring out the best in people 🌟🌷",
+    "You handle everything with grace 🌿💖",
+    "You’re an absolute joy to be around 🥰🌸",
+    "You’re a true gem 💎💛",
+    "Your courage is inspiring 🛡️🔥",
+  ]
+  }, 
+  {
+    type:"video",
+    text:"Memory Lane🕰️💭",
+    src:"our_memories.mp4"
+  },
+  {
+    type:"image",
+    text: `You in that saree?
+    Yeah… you looked really beautiful.
+
+    Had to say it 💖`,
+    src: "saree_pic.jpeg"
+  }, 
+  {
+    type:"video",
+    text: `Well.. I already have my "Julie" 🫶`,
+    src: "us.mp4"
+  },
+  {
+    type: "bouquet",
+    text: `Happyy Birthdayy Kavuuu 💐🤍
+
+    Here’s your bouquet —
+    because you deserve flowers today,
+    tomorrow, and always 🌸✨`
+  },
+  {
+    type: "image",
+    text: `By the way…
+
+    You wearing the dress I got you today?
+    Yeah… that made my day.
+
+    I hope you liked it as much
+    as I liked seeing you in it 💗`,
+    src: "mygift.jpeg"
+  }, 
+  {
+    type: "card",
+    text: `🌟 Things I Can’t Wait to Do With You 
+
+    Eat all the delicious food you cook 🍳 
+    Visit a temple together 🕉️
+    Hit a fun indoor activity park 🎢🎉 
+    Stop at roadside shops and try all kinds of food🌮😋 
+    Go on late-night outings 🌙 
+    My birthday present (the shirt you had to return)👕💖 
+    A short trip somewhere new (even if it’s just nearby, memories matter) ✈️ 
+    Watch a football match with you, even if you don’t know all the rules 😄⚽
+    Celebrate birthdays every year with love and laughter🎂💖 
+
+    No pressure. No rush.
+    Just things I’d love to do with you someday 💛`
+  }, 
+  {
+    type:"card",
+    text:`Even on busy days,
+    even when life gets messy…
+    even when there’s too much to do
+    or too much to feel.
+
+    You matter to me.
+    Always 🤍`
+  },
+  {
+    type: "video",
+    text: `Not saying I wait for it or anything 😌
+
+    But getting a message or call from you?
+    Yeah… that makes my day.`,
+    src: "msg_call_reel.mp4"
+  }, 
+  {
+    type: "image",
+    text: `There’s something I really wanted to thank you for 🤍
+    I know you weren’t feeling your best, and still you came for my brother’s reception.
+    That meant a lot to me. It really did.
+    I hope you know how much I appreciated your effort and that I noticed it.
+    Thank you for being there 🫂`,
+    src: "thanks.jpeg"
+  }, 
+  {
+  type: "writeMessage",
+  text: "\nI’ve shared a lot here.\nNow it’s your turn — only if you feel like it. Take your time 💛"
+  }
+,
+  {
+    type: "card",
+    text: `Hey kavuuu 💗
+
+    I am sorry if I wasn’t able to spend much time with you (unexpected plans with the family)
+    or talk properly today…
+
+    I know it’s your special day, and you deserved my full attention.
+    I just got a little caught up trying to make this surprise right for you.
+
+    I hope you know it wasn’t because you weren’t important —
+    it was actually because you are.
+
+    Thank you for understanding me, always 🫂
+    And thank you for being you 💫
+    If you’re still reading… come yell at me later 😅💛`
+  },
+  {
+    type: "imageSplit",
+    text: `You are the person who corrects me whenever I'm wrong..
+    who doesn't judge me for the person I am..
+    who has the patience to listen to me..
+    who understands me..
+    who comforts me..
+    who accepts me..
+    who trusts me..
+    And thanks a lott..
+    For being there for me..
+    For finding those few minutes for me in your day...
+    For letting me know that I always have someone whom I can count on..
+    I'm forever thankful for the joy you bring into my life 💖 and I'm glad to have you in it..
+    I'll always have your back no matter what.. 🫂
+    Lysmm kavuuu ❤️❤️❤️!!
+    You mean a lot to me 👀🌏!!\nOnce again happy birthday da 💫💓`, 
+    src: "lastpic.jpg" },
+    {
+      type:"card",
+      text:"Did you miss me today?",
+    }
+];
+
+
+
+function openGift(i) {
+  const gift = gifts[i];
+  currentGiftIndex = i;
+  const writeBox = document.getElementById("writeBox");
+  const userMessage = document.getElementById("userMessage");
+  const popup = document.getElementById("popup");
+  const giftText = document.getElementById("giftText");
+  const video = document.getElementById("giftVideo");
+  const img = document.getElementById("giftImg");
+  const source = document.getElementById("videoSource");
+
+  const splitLayout = document.getElementById("splitLayout");
+  const splitText = document.getElementById("splitText");
+  const splitImg = document.getElementById("splitImg");
+  const mediaBox = document.getElementById("mediaBox");
+
+  // Reset all
+  giftText.innerText = "";
+  video.style.display = "none";
+  img.style.display = "none";
+  mediaBox.style.display = "none";
+  splitLayout.style.display = "none";
+  video.pause();
+  video.currentTime = 0;
+  giftText.innerHTML = "";
+  writeBox.style.display = "none";
+  document.getElementById("bouquetBox").style.display = "none";
+
+  if (!gift || Object.keys(gift).length === 0) {
+    giftText.innerText = "This gift will be revealed soon 👀✨";
+  }
+  else if (gift.type === "card") {
+    giftText.innerText = gift.text;
+  }
+  else if (gift.type === "video") {
+    giftText.innerText = gift.text;
+    source.src = gift.src;
+    video.load();
+    video.style.display = "block";
+    mediaBox.style.display = "block";
+    video.play();
+  }
+  else if (gift.type === "twoStepImage") {
+  mediaBox.style.display = "block";
+
+  // Step 1: show blurred image + overlay
+  if (gift.revealStep === 0) {
+    giftText.innerText = ""; // hide text initially
+    img.src = gift.blurredSrc;
+    img.className = "blur-image";
+    img.style.display = "block";
+
+    // Add overlay text
+    const overlay = document.createElement("div");
+    overlay.className = "reveal-text";
+    overlay.innerText = "Tap to Reveal 💖";
+    img.parentNode.appendChild(overlay);
+
+    img.onclick = () => {
+      gift.revealStep = 1; // move to step 2
+      overlay.remove();     // remove overlay
+      openGift(i);          // re-open gift to show full content
+    };
+  } else {
+    // Step 2: show original content
+    giftText.innerText = gift.text;
+    img.src = gift.src;
+    img.className = ""; // remove blur
+    img.style.display = "block";
+    img.onclick = null; // remove click
+  }
+
+  splitLayout.style.display = "none";
+}
+
+  else if (gift.type === "bouquet") {
+  giftText.innerText = gift.text;
+  document.getElementById("bouquetBox").style.display = "block";
+  }
+  else if (gift.type === "image") {
+    giftText.innerText = gift.text;
+    img.src = gift.src;
+    img.style.display = "block";
+    mediaBox.style.display = "block";
+  }
+  else if (gift.type === "writeMessage") {
+  giftText.innerText = gift.text;
+  writeBox.style.display = "block";
+
+  // Load saved message
+  userMessage.value = localStorage.getItem("gift16Message") || "";
+
+  // Auto-save while typing
+  userMessage.oninput = () => {
+    localStorage.setItem("gift16Message", userMessage.value);
+  };
+}
+
+  else if (gift.type === "imageSplit") {
+    splitText.innerText = gift.text;
+    splitImg.src = gift.src;
+    splitLayout.style.display = "flex";
+  }
+  else if (gift.type === "quiz") {
+    const q = document.createElement("p");
+    q.innerText = gift.question;
+    q.style.fontWeight = "bold";
+    giftText.appendChild(q);
+    gift.options.forEach(opt => {
+    const box = document.createElement("div");
+    box.className = "option-box";
+    box.innerText = opt.text;
+    box.onclick = () => {
+    giftText.innerHTML = `<p>${opt.response}</p>`;
+  };
+  giftText.appendChild(box);
+});
+
+  }
+  else if (gift.type === "compliment") {
+    // Pick a random compliment
+    const randomIndex = Math.floor(Math.random() * gift.compliments.length);
+    giftText.innerText = gift.text + "\n\n💌 " + gift.compliments[randomIndex];
+    mediaBox.style.display = "none"; // no media for compliments
+    splitLayout.style.display = "none"; 
+  }
+
+  popup.style.display = "flex";
+}
+
+function clearUserMessage() {
+  localStorage.removeItem("gift16Message");
+  document.getElementById("userMessage").value = "";
+}
+
+
+function closeGift() {
+  document.getElementById("giftVideo").pause();
+  document.getElementById("popup").style.display = "none";
+}
+
+
+</script>
+
+</body>
+</html>
